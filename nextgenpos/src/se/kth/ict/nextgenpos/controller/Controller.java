@@ -1,11 +1,11 @@
 package se.kth.ict.nextgenpos.controller;
 
 import se.kth.ict.nextgenpos.model.Sale;
-import se.kth.ict.nextgenpos.view.NonExistingItemException;
 import se.kth.ict.nextgenpos.model.Receipt;
 
 import java.util.Observer;
 
+import se.kth.ict.nextgenpos.model.NonExistingItemException;
 import se.kth.ict.nextgenpos.model.ProductCatalog;
 import se.kth.ict.nextgenpos.model.ProductSpecification;
 
@@ -48,7 +48,7 @@ public class Controller {
 	 * @throws IllegalStateException
 	 *             If this method is called before makeNewSale().
 	 */
-	public ProductSpecification enterItem(int itemId, int quantity) throws NonExistingItemException {
+	public ProductSpecification enterItem(int itemId, int quantity) throws SpecificationUnknownException {
 		if (sale == null) {
 			throw new IllegalStateException("enterItem() called before makeNewSale()");
 		}
@@ -57,9 +57,9 @@ public class Controller {
 			ProductSpecification spec = catalog.findSpecification(itemId);
 			sale.addItem(spec, quantity);
 			return spec;
-		} catch(NullPointerException nullPoint){
-			LogHandler.getInstance().logException(nullPoint);;
-			throw new NonExistingItemException("Item ID " + itemId + " does not exist", nullPoint);
+		} catch(NonExistingItemException nonExistItem){
+			LogHandler.getInstance().logException(nonExistItem);;
+			throw new SpecificationUnknownException("Item ID " + itemId + " does not exist", nonExistItem);
 		}
 	}
 

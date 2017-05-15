@@ -1,9 +1,7 @@
-May 14, 2017 11:47:31 PM, Exception was thrown: null
-java.lang.NullPointerException
-	at se.kth.ict.nextgenpos.model.SalesLineItem.getCost(SalesLineItem.java:32)
-	at se.kth.ict.nextgenpos.model.Sale.addToTotal(Sale.java:41)
-	at se.kth.ict.nextgenpos.model.Sale.addItem(Sale.java:35)
-	at se.kth.ict.nextgenpos.controller.Controller.enterItem(Controller.java:58)
-	at se.kth.ict.nextgenpos.view.View.enterItem(View.java:45)
-	at se.kth.ict.nextgenpos.view.View.test(View.java:38)
+May 15, 2017 3:41:44 PM, Exception was thrown: User input item:10did not exist
+se.kth.ict.nextgenpos.model.NonExistingItemException: User input item:10did not exist
+	at se.kth.ict.nextgenpos.model.ProductCatalog.findSpecification(ProductCatalog.java:35)
+	at se.kth.ict.nextgenpos.controller.Controller.enterItem(Controller.java:57)
+	at se.kth.ict.nextgenpos.view.View.enterItem(View.java:48)
+	at se.kth.ict.nextgenpos.view.View.test(View.java:41)
 	at se.kth.ict.nextgenpos.startup.Main.main(Main.java:13)

@@ -6,12 +6,15 @@ import java.util.Observable;
 import java.util.Observer;
 
 import se.kth.ict.nextgenpos.controller.Controller;
+import se.kth.ict.nextgenpos.controller.SpecificationUnknownException;
+
 
 /**
  * A placeholder for the view.
  */
 public class View implements Observer{
 	private Controller cont;
+	ArrayList<String> listPrint = new ArrayList<String>();
 
 	/**
 	 * Creates a new <code>View</code>.
@@ -45,12 +48,17 @@ public class View implements Observer{
 			System.out.println("\nResult for item " + itemId + ": " +	cont.enterItem(itemId, quantity));
 			System.out.println("");
 			
-		}catch(NonExistingItemException nonExist){
+		}catch(SpecificationUnknownException nonExist){
 			System.out.println(nonExist.getMessage());
 		}
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
+		listPrint.add((String) arg);
+		for(String strings : listPrint){
+			System.out.println(strings);
+		}
+		
 	}
 }

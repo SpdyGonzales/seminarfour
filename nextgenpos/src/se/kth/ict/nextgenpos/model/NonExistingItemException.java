@@ -1,4 +1,4 @@
-package se.kth.ict.nextgenpos.view;
+package se.kth.ict.nextgenpos.model;
 
 /**
  * 
@@ -10,9 +10,9 @@ package se.kth.ict.nextgenpos.view;
 
 public class NonExistingItemException extends Exception {
 	
-	public NonExistingItemException(String msg, Exception cause){
+	public NonExistingItemException(String msg){
 		
-		super(msg, cause);
+		super(msg);
 	}
 
 }

@@ -30,7 +30,10 @@ public class ProductCatalog {
 	 *         found.
 	 */
 
-	public ProductSpecification findSpecification(int itemId) {
+	public ProductSpecification findSpecification(int itemId) throws NonExistingItemException {
+		if(products.get(itemId) == null){
+			throw new NonExistingItemException("User input item: " + itemId + " did not exist");
+		}
 		return products.get(itemId);
 	}
 }
