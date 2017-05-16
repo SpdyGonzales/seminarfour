@@ -12,7 +12,7 @@ import se.kth.ict.nextgenpos.controller.SpecificationUnknownException;
 /**
  * A placeholder for the view.
  */
-public class View implements Observer{
+public class View implements Observer, Container{
 	private Controller cont;
 	ArrayList<String> listPrint = new ArrayList<String>();
 
@@ -67,9 +67,39 @@ public class View implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		listPrint.add((String) arg);
-		for(String strings : listPrint){
-			System.out.println(strings);
+		for(Iterator iter = getIterator(); iter.hasNext();){
+			String name = (String) iter.next();
+			System.out.println("Item: " + name);
+		}
 		}
 		
+	
+	@Override
+	public Iterator getIterator(){
+		
+		return new ViewIterator();
+		
 	}
+	private class ViewIterator implements Iterator{
+		int i;
+		
+		@Override
+		public boolean hasNext(){
+			if(i<listPrint.size()){
+				return true;
+			}
+			return false;
+		}
+		
+		@Override
+		public Object next(){
+			if(this.hasNext()){
+				Object c = listPrint.get(i);
+				i++;		
+				return c;
+			}
+			return null;
+		}
+	}
+		
 }

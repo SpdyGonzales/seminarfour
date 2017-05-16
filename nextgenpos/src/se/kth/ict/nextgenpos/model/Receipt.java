@@ -44,8 +44,8 @@ public class Receipt {
      * @return A well-formatted string with all receipt information.
      */
     public String toString() {
-	//create a string that can be printed on the receipt.
-	return null; //Sould return the string created above.
+	
+	return "Paid in Cash: " + payedAmount +". Cash back: " + getChange();
     }
 
 }
