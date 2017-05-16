@@ -33,6 +33,13 @@ public class Sale extends Observable {
 		SalesLineItem lineItem = new SalesLineItem(spec, quantity);
 		lineItems.add(lineItem);
 		addToTotal(lineItem);
+		
+		/**
+		 * When lineItem is added Observed class notifies observers with setChanged and 
+		 * notifyObservers with object of choice
+		 * @param String with lineItem description
+		 */
+		
 		setChanged();
 		notifyObservers(lineItem.getDescr());
 	}
@@ -75,6 +82,11 @@ public class Sale extends Observable {
 	int getPayedAmount() {
 		return payedAmount;
 	}
+	
+	/**
+	 * extends observable and can add observers
+	 * @param the class that should be added to Observer objects
+	 */
 	
 	public void addObserver(Observer obs){
 		super.addObserver(obs);

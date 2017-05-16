@@ -34,6 +34,11 @@ public class View implements Observer{
 		 * Adding view to list of observers in sale
 		 */
 		cont.makeNewSale();
+		
+		/**
+		 * Sets observer passed to controller. Controller is passing it to sale.
+		 * @param Observer in this case this as in the view
+		 */
 		cont.setObserver(this);
 		enterItem(1);
 		enterItem(2);
@@ -52,6 +57,12 @@ public class View implements Observer{
 			System.out.println(nonExist.getMessage());
 		}
 	}
+	
+	/**
+	 * update gets the object from notifyObservers parameter and adds it to a list of strings
+	 * String is then printed to the user. Object is casted as string
+	 * @param observable is the class being observed and arg is the object being passed from notifyObservers in sale
+	 */
 
 	@Override
 	public void update(Observable o, Object arg) {

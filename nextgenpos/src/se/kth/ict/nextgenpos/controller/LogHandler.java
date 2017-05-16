@@ -15,6 +15,11 @@ import java.time.format.FormatStyle;
  */
 public class LogHandler {
 	
+	/**
+	 * Loghandler singleton pattern. Made private to just hand out one loghandler to everyone. Avoiding that we have multiple 
+	 * loghandler active at the same time.
+	 */
+	
 	private static LogHandler LOG_HANDLER = new LogHandler();
 	private static final String LOG_FILE_NAME = "supermarketsales-log.txt";
 	private PrintWriter logFile;
