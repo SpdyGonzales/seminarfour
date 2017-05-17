@@ -1,4 +1,4 @@
-May 17, 2017 1:48:12 AM, Exception was thrown: User input item: 10 did not exist
+May 17, 2017 10:37:59 AM, Exception was thrown: User input item: 10 did not exist
 se.kth.ict.nextgenpos.model.NonExistingItemException: User input item: 10 did not exist
 	at se.kth.ict.nextgenpos.model.ProductCatalog.findSpecification(ProductCatalog.java:35)
 	at se.kth.ict.nextgenpos.controller.Controller.enterItem(Controller.java:57)

@@ -50,7 +50,7 @@ public class View implements Observer, Container{
 		try{
 			int quantity = 1;
 			System.out.println("");
-			System.out.println("\nResult for item " + itemId + ": " +	cont.enterItem(itemId, quantity));
+			System.out.println("\nLatest Result for Entered Item " + itemId + ": " +	cont.enterItem(itemId, quantity));
 			System.out.println("");
 			
 		}catch(SpecificationUnknownException nonExist){
@@ -73,7 +73,10 @@ public class View implements Observer, Container{
 		}
 		}
 		
-	
+	/**
+	 * setting up iterator to print out the list in order. incrementing the list if it's not
+	 * in the end of the array list.
+	 */
 	@Override
 	public Iterator getIterator(){
 		
